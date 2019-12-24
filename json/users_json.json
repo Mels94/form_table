@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "John",
+      "surname": "Smith",
+      "country": "USA",
+      "city": "New York",
+      "dateOfBirth": "01/10/1990",
+      "gender": "male",
+      "edit": ""
+    },
+    {
+      "id": 1,
+      "name": "Poghos",
+      "surname": "Poghosyan",
+      "country": "Armenia",
+      "city": "Gyumri",
+      "dateOfBirth": "12/11/1999",
+      "gender": "male",
+      "edit": ""
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "surname": "Doe",
+      "country": "England",
+      "city": "London",
+      "dateOfBirth": "01/10/1995",
+      "gender": "male",
+      "edit": ""
+    }
+  ]
+}
