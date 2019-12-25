@@ -6,7 +6,7 @@
       "surname": "Smith",
       "country": "USA",
       "city": "New York",
-      "dateOfBirth": "01/10/1990",
+      "dateOfBirth": "1990-10-01",
       "gender": "male",
       "edit": ""
     },
@@ -16,7 +16,7 @@
       "surname": "Poghosyan",
       "country": "Armenia",
       "city": "Gyumri",
-      "dateOfBirth": "12/11/1999",
+      "dateOfBirth": "1999-11-12",
       "gender": "male",
       "edit": ""
     },
@@ -26,7 +26,7 @@
       "surname": "Doe",
       "country": "England",
       "city": "London",
-      "dateOfBirth": "01/10/1995",
+      "dateOfBirth": "1995-10-01",
       "gender": "male",
       "edit": ""
     }
