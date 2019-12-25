@@ -9,52 +9,50 @@
     <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
           integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' crossorigin='anonymous'>
     <script src='js/jquery-3.4.1.min.js'></script>
-<!--    <script src='js/script.js'></script>-->
     <script src='js/init.js'></script>
 </head>
 <body>
 
 <div class="container">
     <div class="well">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs justify-content-center">
             <li class="nav-item"><a class="nav-link active" href="#login" data-toggle="tab">FORM</a></li>
             <li class="nav-item"><a class="nav-link" href="#table" data-toggle="tab">TABLE</a></li>
         </ul>
         <div id="myTabContent" class="tab-content mt-2">
             <div class="tab-pane active in" id="login">
-                <form id="tab" method="post">
+                <form id="tab" method="post" class="text-center">
                     <div class="form-group">
-                        <label class="col-sm-1">Name</label>
+                        <label class="col-sm-1 text-right">Name</label>
                         <input type="text" name="name">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-1">Surname</label>
+                        <label class="col-sm-1 text-right">Surname</label>
                         <input type="text" name="surname">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-1">Country</label>
+                        <label class="col-sm-1 text-right">Country</label>
                         <input type="text" name="country">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-1">City</label>
+                        <label class="col-sm-1 text-right">City</label>
                         <input type="text" name="city">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-1">Birthday</label>
+                        <label class="col-sm-1 text-right">Birthday</label>
                         <input type="date" name="bday" max="3000-12-31"
                                min="1000-01-01">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-1">Gender</label>
+                        <label class="col-sm-1 text-right">Gender</label>
                         <label>
                             <input type="radio" value="male" name="gender"> Male</label>
                         <label class="ml-2">
                             <input type="radio" value="female"  name="gender"> Female</label>
                     </div>
                     <div id="but1">
-                        <input class="btn btn-primary" type="reset" value="Clean">
+                        <button class="btn btn-primary" type="reset">Clean</button>
                         <button type="button" class="btn btn-primary" id="send">Send</button>
-<!--                        <button type="button" class="btn btn-primary" key="1" id="update">Update</button>-->
                     </div>
                 </form>
             </div>
