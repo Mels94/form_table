@@ -25,8 +25,23 @@ $.ajax({
         table.appendChild(thead);
         let tbody = document.createElement("tbody");
         tbody.setAttribute('id', 'tbody1');
+        table.appendChild(tbody);
 
         data.users.forEach((i, index) => {
+/*            $('#tbody1').append("<tr id='"+ i.id +"'>\n" +
+                "    <td>"+ index +"</td>\n" +
+                "    <td>"+i.name+"</td>\n" +
+                "    <td>"+i.surname+"</td>\n" +
+                "    <td>"+i.country+"</td>\n" +
+                "    <td>"+i.city+"</td>\n" +
+                "    <td>"+i.dateOfBirth+"</td>\n" +
+                "    <td>"+i.gender+"</td>\n" +
+                "    <td>\n" +
+                "        <button class='edit'><i class='fa fa-edit'></i></button>\n" +
+                "        <button class='delete' accesskey='"+ id +"'><i class='fa fa-minus-circle'></i></button>\n" +
+                "    </td>\n" +
+                "</tr>");*/
+
             let tr2 = document.createElement("tr");
             tr2.setAttribute('id', i.id);
             tbody.appendChild(tr2);
@@ -68,11 +83,8 @@ $.ajax({
             td7.appendChild(button2);
             tr2.appendChild(td7);
         });
+
         table.appendChild(tbody);
-
-
-
-
 
 /*        $(document).on('click', '#delete', function () {
             let id = $(this).closest('tr').attr('id');
@@ -106,14 +118,6 @@ let id = 4;
 $(document).on('click', '#send', function () {
     let form = $('#tab').serializeArray();
 
-    //console.log(form[0].value);
-    //console.log(form[1].value);
-
-    console.log(form);
-
-    /*form.forEach((i, index) => {*/
-
-    //console.log(i);
 $('#table1').append("<tr id='tr_"+ id +"'>\n" +
     "    <td>"+id+"</td>\n" +
     "    <td>"+form[0].value+"</td>\n" +
@@ -123,12 +127,12 @@ $('#table1').append("<tr id='tr_"+ id +"'>\n" +
     "    <td>"+form[4].value+"</td>\n" +
     "    <td>"+form[5].value+"</td>\n" +
     "    <td>\n" +
-    "        <button class='edit'><i class='fa fa-edit'></i></button>\n" +
-    "        <button class='delete' accesskey='"+ id +"'><i class='fa fa-minus-circle'></i></button>\n" +
+    "        <button class='edit' id='"+ id +"'><i class='fa fa-edit'></i></button>\n" +
+    "        <button class='delete' id='"+ id +"'><i class='fa fa-minus-circle'></i></button>\n" +
     "    </td>\n" +
     "</tr>");
 id++;
-
+    //$(this).closest('form')[0].reset();
 
 /*
     let tr3 = document.createElement("tr");
@@ -176,19 +180,56 @@ id++;
     });
     table.appendChild(tbody);*/
 
+});
 
+
+$(document).on('click', '.edit', function () {
+
+    let name = $(this).closest('tr')[0].children[1].innerText;
+    let surname = $(this).closest('tr')[0].children[2].innerText;
+    let country = $(this).closest('tr')[0].children[3].innerText;
+    let city = $(this).closest('tr')[0].children[4].innerText;
+    let bday = $(this).closest('tr')[0].children[5].innerText;
+    let gender = $(this).closest('tr')[0].children[6].innerText;
+
+
+    console.log($(this).closest('tr'));
+
+    $("input[name='name']").val(name);
+    $("input[name='surname']").val(surname);
+    $("input[name='country']").val(country);
+    $("input[name='city']").val(city);
+    $("input[name='bday']").val(bday);
+    $("input[name='gender']").val(gender);
+
+    //$('#send').css({backgroundColor: 'red'});
+
+    $('#but1').append("<button type='button' class='btn btn-primary' key='"+ id +"' id=\"update\">Update</button>");
+});
+
+$(document).on('click', '#update', function () {
+    let key = $(this).attr('key');
+
+    console.log(key);
+
+    // let tr = $('#tr_'+id);
+    // let arr = [];
+    // for (let i of tr){
+    //     arr.push(i.innerText)
+    // }
+    // console.log(arr);
 
 });
+
 
 $(document).on('click', '.delete', function () {
-let id = $(this).attr('accessKey');
-    let tr = $('#tr_'+id);
-    let arr = [];
-    for (let i of tr){
-        arr.push(i.innerText)
+    let id = $(this).closest('tr').attr('id');
+    let ask = confirm('do you want to delete?');
+    if (ask === true) {
+        $('#' + id).remove();
     }
-    console.log(arr);
 });
+
 
 /*$(document).on('click', '#send', function () {
     let form = $('#tab').serializeArray();
@@ -260,30 +301,4 @@ let id = $(this).attr('accessKey');
 
 });*/
 
-
-/*    $(document).on('click', '#delete1', function () {
-        let id = $(this).closest('tr').attr('id');
-        console.log(id);
-        let ask = confirm('do you want to delete?');
-        if (ask === true) {
-            $('#' + id).remove();
-        }
-    });*/
-
-/*    $(document).on('click', '#edit1', function () {
-        let name = $(this).closest('tr')[0].children[1].innerText;
-        let surname = $(this).closest('tr')[0].children[2].innerText;
-        let country = $(this).closest('tr')[0].children[3].innerText;
-        let city = $(this).closest('tr')[0].children[4].innerText;
-        let bday = $(this).closest('tr')[0].children[5].innerText;
-        let gender = $(this).closest('tr')[0].children[6].innerText;
-
-        $("input[name='name']").val(name);
-        $("input[name='surname']").val(surname);
-        $("input[name='country']").val(country);
-        $("input[name='city']").val(city);
-        $("input[name='bday']").val(bday);
-        $("input[name='gender']").val(gender);
-
-    });*/
 
