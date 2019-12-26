@@ -48,6 +48,7 @@ $(document).on('click', '#send', function () {
         $("input[name='bday']").val() !== "" &&
         $("input[name='gender']").val() !== ""
     ) {
+
         let form = $('#tab').serializeArray();
 
         $('#table1').append("<tr id='tr_" + id + "'>" +
@@ -64,6 +65,7 @@ $(document).on('click', '#send', function () {
             "    </td>" +
             "</tr>");
         $('#tab')[0].reset();
+        $('#tab input').css({border: '1px solid #ced4da'});
         $("input[name='gender']").attr('checked', false);
         id++;
 
@@ -98,6 +100,8 @@ $(document).on('click', '.edit', function () {
 
     $('#update').remove();
     $('#but1').append("<button type='button' class='btn btn-danger' accesskey='" + id + "' id='update'>Update</button>");
+
+    $('#send').css({display: "none"});
 
     $('.nav-item a[href="#table"]').removeClass("active");
     $('.nav-item a[href="#login"]').addClass("active");

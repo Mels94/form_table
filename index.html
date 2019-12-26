@@ -21,40 +21,45 @@
         </ul>
         <div id="myTabContent" class="tab-content mt-2">
             <div class="tab-pane active in" id="login">
-                <form id="tab" method="post" class="text-center">
-                    <div class="form-group">
-                        <label class="col-sm-1 text-right">Name</label>
-                        <input type="text" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-1 text-right">Surname</label>
-                        <input type="text" name="surname">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-1 text-right">Country</label>
-                        <input type="text" name="country">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-1 text-right">City</label>
-                        <input type="text" name="city">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-1 text-right">Birthday</label>
-                        <input type="date" name="bday" max="3000-12-31"
-                               min="1000-01-01">
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-1 text-right">Gender</label>
-                        <label>
-                            <input type="radio" value="male" name="gender"> Male</label>
-                        <label class="ml-2">
-                            <input type="radio" value="female"  name="gender"> Female</label>
-                    </div>
-                    <div id="but1">
-                        <button class="btn btn-primary" type="reset">Clean</button>
-                        <button type="button" class="btn btn-primary" id="send">Send</button>
-                    </div>
-                </form>
+                <div class="col-md-10 offset-1 mt-3">
+                    <form id="tab">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Surname</label>
+                            <input type="text" class="form-control" name="surname" id="surname">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" class="form-control" name="country" id="country">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="city" id="city">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" name="bday" id="date">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                        </div>
+                        <div id="but1">
+                            <button class="btn btn-primary" type="reset">Clean</button>
+                            <button type="button" class="btn btn-primary" id="send">Send</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
 
             <div class="tab-pane fade" id="table">
