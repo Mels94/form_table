@@ -3,37 +3,35 @@ $.ajax({
     type: "get",
     dataType: "json",
     success: function (data) {
-
-        $('#table_users').append("<table class='table table-striped' id='table1'>" +
-            "                        <thead class='thead-dark'>" +
-            "                            <tr id='tr_th'></tr>" +
-            "                        </thead>" +
-            "                    </table>");
+        $('#table_users').append(`<table class='table table-striped' id='table1'>
+                                    <thead class='thead-dark'>
+                                        <tr id='tr_th'></tr>
+                                    </thead>
+                                </table>`);
 
         Object.keys(data.users[0]).forEach(item => {
             if (item === "id")
                 item = "#";
             if (item === "edit")
                 item = "";
-            $('#tr_th').append("<th>" + item + "</th>");
+            $('#tr_th').append(`<th>${item}</th>`);
         });
-        $('#table1').append("<tbody id='tbody1'></tbody>");
+        $('#table1').append(`<tbody id='tbody1'></tbody>`);
 
         data.users.forEach((i, index) => {
-            index++;
-            $('#tbody1').append("<tr id='" + i.id + "'>" +
-                "    <td>" + index + "</td>" +
-                "    <td>" + i.name + "</td>" +
-                "    <td>" + i.surname + "</td>" +
-                "    <td>" + i.country + "</td>" +
-                "    <td>" + i.city + "</td>" +
-                "    <td>" + i.dateOfBirth + "</td>" +
-                "    <td>" + i.gender + "</td>" +
-                "    <td>" +
-                "        <button class='edit1'><i class='fa fa-edit'></i></button>" +
-                "        <button class='delete1'><i class='fa fa-minus-circle'></i></button>" +
-                "    </td>" +
-                "</tr>");
+            $('#tbody1').append(`<tr id=${i.id}>
+                    <td>${index + 1}</td>
+                    <td>${i.name}</td>
+                    <td>${i.surname}</td>
+                    <td>${i.country}</td>
+                    <td>${i.city}</td>
+                    <td>${i.dateOfBirth}</td>
+                    <td>${i.gender}</td>
+                    <td>
+                        <button class='edit1'><i class='fa fa-edit'></i></button>
+                        <button class='delete1'><i class='fa fa-minus-circle'></i></button>
+                    </td>
+                </tr>`);
         });
     }
 });
@@ -51,19 +49,19 @@ $(document).on('click', '#send', function () {
 
         let form = $('#tab').serializeArray();
 
-        $('#table1').append("<tr id='tr_" + id + "'>" +
-            "    <td>" + id + "</td>" +
-            "    <td class='data'>" + form[0].value + "</td>" +
-            "    <td class='data'>" + form[1].value + "</td>" +
-            "    <td class='data'>" + form[2].value + "</td>" +
-            "    <td class='data'>" + form[3].value + "</td>" +
-            "    <td class='data'>" + form[4].value + "</td>" +
-            "    <td class='data'>" + form[5].value + "</td>" +
-            "    <td class=''>" +
-            "        <button class='edit' id='" + id + "'><i class='fa fa-edit'></i></button>" +
-            "        <button class='delete' id='" + id + "'><i class='fa fa-minus-circle'></i></button>" +
-            "    </td>" +
-            "</tr>");
+        $('#table1').append(`<tr id='tr_${id}'>
+                <td>${id}</td>"
+                <td class='data'>${form[0].value}</td>
+                <td class='data'>${form[1].value}</td>
+                <td class='data'>${form[2].value}</td>
+                <td class='data'>${form[3].value}</td>
+                <td class='data'>${form[4].value}</td>
+                <td class='data'>${form[5].value}</td>
+                <td class=''>
+                    <button class='edit' id='${id}'><i class='fa fa-edit'></i></button>
+                    <button class='delete' id='${id}'><i class='fa fa-minus-circle'></i></button>
+                </td>
+            </tr>`);
         $('#tab')[0].reset();
         $('#tab input').css({border: '1px solid #ced4da'});
         $("input[name='gender']").attr('checked', false);
@@ -99,7 +97,7 @@ $(document).on('click', '.edit', function () {
     $("input[value='" + gender + "']").attr('checked', true);
 
     $('#update').remove();
-    $('#but1').append("<button type='button' class='btn btn-danger' accesskey='" + id + "' id='update'>Update</button>");
+    $('#but1').append(`<button type='button' class='btn btn-danger' accesskey='${id}' id='update'>Update</button>`);
 
     $('#send').css({display: "none"});
 
@@ -136,6 +134,8 @@ $(document).on('click', '.delete', function () {
         $('#' + id).remove();
     }
 });
+
+
 
 
 
